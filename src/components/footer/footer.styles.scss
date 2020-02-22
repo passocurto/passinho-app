@@ -1,16 +1,15 @@
     .footer {
-      height: 100px;
-      display: flex;
+      height: 200px;
+      display: block;
       justify-content:space-between;
       flex-direction:column;
-      position: fixed;
       left: 0;
       bottom: 0;
       width: 100%;
     }
 
     .clothers{
-      margin:0 10px;
+      margin:20px 10px 10px 10px;
       text-align: center;
       text-decoration: black;
       font-weight: bold;

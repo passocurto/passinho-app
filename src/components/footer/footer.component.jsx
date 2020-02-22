@@ -17,12 +17,12 @@ class Footer extends React.Component{
         return(   
             <div className='footer'>
                 <div>
-                    <center>
+                    <center className='clothers'>
                         { collections.map(({ id, title }) => ( <a href={title} className='clothers' key={id} > {title} </a> ) ) }   
                     </center>
                 </div>
                 <div className='developer'>
-                    <span>Produzido poor PassoCurto desenvolvimento</span>
+                    <span>Produzido por Ricardo Passinho</span>
                 </div>
             </div>
             )
