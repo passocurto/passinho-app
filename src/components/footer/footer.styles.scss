@@ -1,0 +1,24 @@
+    .footer {
+      height: 100px;
+      display: flex;
+      justify-content:space-between;
+      flex-direction:column;
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .clothers{
+      margin:0 10px;
+      text-align: center;
+      text-decoration: black;
+      font-weight: bold;
+    }
+
+    .developer{
+      margin: 0 0 25px 0;
+      text-align: center;
+    }
+
+  
