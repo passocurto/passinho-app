@@ -31,6 +31,7 @@ const cartReducer = (state = INITIAL_STATE, action) => {
         )
       };
     default:
+      console.log({state});
       return state;
   }
 };
