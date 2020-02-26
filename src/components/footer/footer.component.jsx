@@ -14,6 +14,9 @@ class Footer extends React.Component{
       }
       render() {
         const { collections } = this.state;
+
+        console.log(this.state);
+
         return(   
             <div className='footer'>
                 <div>
@@ -22,7 +25,7 @@ class Footer extends React.Component{
                     </center>
                 </div>
                 <div className='developer'>
-                    <span>Produzido por Ricardo Passinho</span>
+                    <span> Produzido por Ricardo Passinho </span>
                 </div>
             </div>
             )
