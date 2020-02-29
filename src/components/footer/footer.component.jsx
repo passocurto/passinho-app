@@ -1,35 +1,37 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+
+import { selectDirectorySections } from '../../redux/directory/directory.selectors';
 
 import './footer.styles.scss';
 
-import SHOP_DATA from '../../pages/shop/shop.data';
 
-class Footer extends React.Component{
-    constructor() {
-        super();
-    
-        this.state = {
-            collections: SHOP_DATA
-          };
-      }
-      render() {
-        const { collections } = this.state;
 
-        console.log(this.state);
-
-        return(   
+const Footer = ({ sections }) => ( 
             <div className='footer'>
                 <div>
                     <center className='clothers'>
-                        { collections.map(({ id, title }) => ( <a href={title} className='clothers' key={id} > {title} </a> ) ) }   
+                            {
+                                sections.map(({ id, title}) => (
+                                    <a href={'/shop/' + title.toLowerCase()} className='clothers' key={id} > { title } </a> ) 
+                                ) 
+                            }
                     </center>
                 </div>
                 <div className='developer'>
                     <span> Produzido por Ricardo Passinho </span>
+                    <br />
+                    <span> Brazil - 2020 </span>
                 </div>
             </div>
-            )
-        }
-    }
+    )
 
-export default Footer;
+
+const mapStateToProps = createStructuredSelector({
+    sections: selectDirectorySections
+    });
+     
+
+export default withRouter(connect(mapStateToProps)(Footer));   

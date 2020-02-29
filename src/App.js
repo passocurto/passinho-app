@@ -18,18 +18,18 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 import { setCurrentUser } from './redux/user/user.actions';
 import { selectCurrentUser } from './redux/user/user.selectors';
 
-import { selectCollectionsForPreview } from './redux/shop/shop.selectors';
+//import { selectCollectionsForPreview } from './redux/shop/shop.selectors';
 
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
     
+    const { setCurrentUser } = this.props;
+   
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
-
         userRef.onSnapshot(snapShot => {
           setCurrentUser({
             id: snapShot.id,
@@ -39,9 +39,9 @@ class App extends React.Component {
       }
 
       setCurrentUser(userAuth);
-   //   console.log(collectionsArray.map(({title, items}) => ({title, items})));
+    //  console.log(collectionsArray.map(({title, items}) => ({title, items})));
     //  addCollectionAndDocuments('collections', collectionsArray.map(({title, items}) => ({title, items})));
-    });
+     });
   }
 
   componentWillUnmount() {
@@ -68,7 +68,7 @@ class App extends React.Component {
             }
           />
         </Switch>
-      <Footer />>  
+        <Footer />
       </div>
     );
   }
@@ -76,7 +76,6 @@ class App extends React.Component {
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
-
 });
 
 const mapDispatchToProps = dispatch => ({
