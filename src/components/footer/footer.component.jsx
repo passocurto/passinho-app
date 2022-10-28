@@ -33,6 +33,7 @@ const Footer = ({ sections }) => (
       </span>
       <br />
       <span> Brazil - 2022 </span>
+      <br />
     </div>
   </div>
 );
