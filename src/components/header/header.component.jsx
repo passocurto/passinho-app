@@ -1,36 +1,41 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
+import React from "react";
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
 
-import { auth } from '../../firebase/firebase.utils';
-import CartIcon from '../cart-icon/cart-icon.component';
-import CartDropdown from '../cart-dropdown/cart-dropdown.component';
-import { selectCartHidden } from '../../redux/cart/cart.selectors';
-import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { auth } from "../../firebase/firebase.utils";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
+import { selectCartHidden } from "../../redux/cart/cart.selectors";
+import { selectCurrentUser } from "../../redux/user/user.selectors";
 
-import { ReactComponent as Logo } from '../../assets/crown.svg';
+import { ReactComponent as Logo } from "../../assets/crown.svg";
 
 import {
   HeaderContainer,
   LogoContainer,
   OptionsContainer,
-  OptionLink
-} from './header.styles';
+  OptionLink,
+  LegendContainer,
+} from "./header.styles";
 
 const Header = ({ currentUser, hidden }) => (
   <HeaderContainer>
-    <LogoContainer to='/'>
-      <Logo className='logo' />
+    <LogoContainer to="/">
+      <Logo className="logo" />
     </LogoContainer>
+    <LegendContainer>
+      {" "}
+      Trabalho desenvolvido para o seminário de conclusão da matéria de
+      pós-graduação (UNIOESTE)
+    </LegendContainer>
     <OptionsContainer>
-      <OptionLink to='/shop'>SHOP</OptionLink>
-      <OptionLink to='/shop'>CONTACT</OptionLink>
+      <OptionLink to="/shop">SHOP</OptionLink>
       {currentUser ? (
-        <OptionLink as='div' onClick={() => auth.signOut()}>
-          SIGN OUT
+        <OptionLink as="div" onClick={() => auth.signOut()}>
+          DESLOGAR
         </OptionLink>
       ) : (
-        <OptionLink to='/signin'>SIGN IN</OptionLink>
+        <OptionLink to="/signin">LOGAR</OptionLink>
       )}
       <CartIcon />
     </OptionsContainer>
@@ -40,7 +45,7 @@ const Header = ({ currentUser, hidden }) => (
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
-  hidden: selectCartHidden
+  hidden: selectCartHidden,
 });
 
 export default connect(mapStateToProps)(Header);

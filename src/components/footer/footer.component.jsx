@@ -3,39 +3,20 @@ import { withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
+//import { developer, clothers, footer } from "./footer.styles";
+
 import { selectDirectorySections } from "../../redux/directory/directory.selectors";
 
-import "./footer.styles.scss";
-
 const Footer = ({ sections }) => (
-  <div className="footer">
-    <div>
-      <center className="clothers">
-        {sections.map(({ id, title }) => (
-          <a
-            href={"/shop/" + title.toLowerCase()}
-            className="clothers"
-            key={id}
-          >
-            {" "}
-            {title}{" "}
-          </a>
-        ))}
-      </center>
-    </div>
-    <div className="developer">
+  <center>
+    <developer>
       <span> Produzido por Ricardo Passinho </span>
       <br />
-      <span>
-        Trabalho desenvolvindo como proposta para a conclusão do Programa de
-        Pós-Graduação em Tecnologias, Gestão e Sustentabilidade - Nível de
-        Mestrado - PPGTGS
-      </span>
+      <span>Foz do Iguaçu - Brazil </span>
       <br />
-      <span> Brazil - 2022 </span>
-      <br />
-    </div>
-  </div>
+      <span> 2022 </span>
+    </developer>
+  </center>
 );
 
 const mapStateToProps = createStructuredSelector({
